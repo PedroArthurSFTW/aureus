@@ -1,14 +1,16 @@
 package com.example.aureus.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Data
 @Entity
-@Table(name = "account")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
     @Id
     @GeneratedValue(generator = "UUID")

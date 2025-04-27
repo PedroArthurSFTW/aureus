@@ -1,0 +1,5 @@
+CREATE TABLE Role (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    is_active BOOLEAN NOT NULL
+);

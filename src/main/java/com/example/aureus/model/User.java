@@ -1,14 +1,20 @@
 package com.example.aureus.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
 @Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "username"))
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -25,10 +31,6 @@ public class User {
 
     @Column(name = "is_active")
     private Boolean isActive = true;
-
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
 
     @OneToOne
     @JoinColumn(name = "employee_id", nullable = false, unique = true)
