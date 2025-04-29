@@ -1,5 +1,6 @@
 package com.example.aureus.dto.employee;
 
+import com.example.aureus.model.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -17,5 +18,8 @@ public record EmployeeRequestDTO (
     LocalDate dateOfBirth,
 
     @NotNull(message = "Manager status cannot be null")
-    Boolean isManager
+    Boolean isManager,
+
+    @NotNull(message = "role id cannot be null")
+    Role role
     ){}
